@@ -17,9 +17,25 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="TextView"
+            android:text="@string/instruction_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAlignment="center"
             android:id="@+id/instructionsTextView"/>
+
+        <Button
+            android:text="@string/response_Button_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/response_button"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/response_Text_View"
+            android:textSize="24sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            />
     </LinearLayout>
 </RelativeLayout>
