@@ -18,6 +18,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Response.sAllResponses = new Response[] {new Response("It is certain"),
+                new Response("It is decidedly so"),
+                new Response("Without a doubt"),
+                new Response("Yes, definitely"),
+                new Response("You may rely on it"),
+                new Response("As I see it, yes"),
+                new Response("Most likely"),
+                new Response("Outlook good"),
+                new Response("Yes"),
+                new Response("Signs point to yes"),
+                new Response("Reply hazy try again"),
+                new Response("Ask again later"),
+                new Response("Better not tell you now"),
+                new Response("Cannot predict now"),
+                new Response("Concentrate and ask again"),
+                new Response("Don't count on it"),
+                new Response("My reply is no"),
+                new Response("My sources say no"),
+                new Response("Outlook not so good"),
+                new Response("Very doubtful")};
+
+
         //wire up layout widgets
 
         mTextView = (TextView) findViewById(R.id.response_Text_View);

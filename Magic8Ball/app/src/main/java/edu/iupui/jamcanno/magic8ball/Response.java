@@ -8,8 +8,26 @@ public class Response {
 
     public String mResponseString;
 
-    public Response[] sAllResponses;
+    public static Response[] sAllResponses;
 
-    
+
+    //constructor
+    Response(String responseString) {
+
+        mResponseString = responseString;
+
+    }
+
+
+    //getters & setters
+    public String getResponseString() {
+        return mResponseString;
+    }
+
+    public void setResponseString(String responseString) {
+        mResponseString = responseString;
+    }
+
+
 
 }
