@@ -6,11 +6,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button mResponseButton;
     private TextView mTextView;
+    private int findRandomResponse(){
 
+        return new Random().nextInt(Response.sAllResponses.length - 1);
+
+    };
 
 
     @Override
