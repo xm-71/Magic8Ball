@@ -2,6 +2,7 @@ package edu.iupui.jamcanno.magic8ball;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,7 +21,23 @@ public class MainActivity extends AppCompatActivity {
         //wire up layout widgets
 
         mTextView = (TextView) findViewById(R.id.response_Text_View);
+
+
+        //button
         mResponseButton = (Button) findViewById(R.id.response_button);
+        mResponseButton.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v){
+
+                //get a random response
+
+                //display the response on the screen
+
+
+            }
+
+        });
     }
 
     //getters & setters
