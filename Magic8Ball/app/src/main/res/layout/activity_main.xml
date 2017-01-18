@@ -9,19 +9,31 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#000000"
     tools:context="edu.iupui.jamcanno.magic8ball.MainActivity">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <TextView
+            android:text="8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:textSize="36sp"
+            android: android:textAlignment="center"
+            android:textColor="@android:color/background_light"/>
 
         <TextView
             android:text="@string/instruction_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:id="@+id/instructionsTextView"/>
+            android:id="@+id/instructionsTextView"
+            android:textColor="@android:color/background_light"/>
 
         <Button
             android:text="@string/response_Button_Text"
@@ -34,7 +46,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/response_Text_View"
             android:textSize="24sp"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/background_light"
             android:textAlignment="center"
             />
     </LinearLayout>

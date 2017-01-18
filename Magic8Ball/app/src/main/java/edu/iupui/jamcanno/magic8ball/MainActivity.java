@@ -60,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
                 //get a random response
 
+                int responseIndex = findRandomResponse();
+
                 //display the response on the screen
+
+                mTextView.setText(Response.sAllResponses[responseIndex].getResponseString());
 
 
             }
