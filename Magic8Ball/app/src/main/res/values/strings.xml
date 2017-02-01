@@ -2,4 +2,5 @@
     <string name="app_name">Magic8Ball</string>
     <string name="instruction_text">Ask me a Question</string>
     <string name="response_Button_Text">Let the Oracle Speak</string>
+    <string name="title_activity_add_response">addResponseActivity</string>
 </resources>

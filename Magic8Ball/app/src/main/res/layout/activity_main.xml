@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/textView4"
             android:textSize="36sp"
-            android: android:textAlignment="center"
+            android:textAlignment="center"
             android:textColor="@android:color/background_light"/>
 
         <TextView
@@ -49,5 +49,12 @@
             android:textColor="@android:color/background_light"
             android:textAlignment="center"
             />
+
+        <Button
+            android:text="Button"
+            android:="@string/add_response_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_response_button"/>
     </LinearLayout>
 </RelativeLayout>

@@ -1,22 +1,35 @@
 package edu.iupui.jamcanno.magic8ball;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mResponseButton;
     private TextView mTextView;
+
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
+
     private int findRandomResponse(){
 
-        return new Random().nextInt(Response.sAllResponses.length - 1);
+        return new Random().nextInt(Response.sAllResponses.size()-1);
 
     };
+
+
 
 
     @Override
@@ -24,7 +37,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Response.sAllResponses = new Response[] {new Response("It is certain"),
+        if (Response.sAllResponses == null) {
+
+            Response.sAllResponses = new ArrayList<>();
+            Response.sAllResponses.add(new Response("It is going to be bad"));
+            Response.sAllResponses.add(new Response("It is going to be good"));
+
+        }
+
+        /*
+
+        Response.sAllResponses = new Response[] {
+
+                new Response("It is certain"),
                 new Response("It is decidedly so"),
                 new Response("Without a doubt"),
                 new Response("Yes, definitely"),
@@ -43,12 +68,36 @@ public class MainActivity extends AppCompatActivity {
                 new Response("My reply is no"),
                 new Response("My sources say no"),
                 new Response("Outlook not so good"),
-                new Response("Very doubtful")};
+                new Response("Very doubtful")
+        };
+
+        */
 
 
         //wire up layout widgets
 
         mTextView = (TextView) findViewById(R.id.response_Text_View);
+
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager
+                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
+            @Override
+            public void onShake(int count) {
+                //get a random response
+
+                int responseIndex = findRandomResponse();
+
+                //display the response on the screen
+
+                mTextView.setText(Response.sAllResponses.get(responseIndex).getResponseString());
+
+
+            }
+        });
 
 
         //button
@@ -64,12 +113,26 @@ public class MainActivity extends AppCompatActivity {
 
                 //display the response on the screen
 
-                mTextView.setText(Response.sAllResponses[responseIndex].getResponseString());
+                mTextView.setText(Response.sAllResponses.get(responseIndex).getResponseString());
 
 
             }
 
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
     }
 
     //getters & setters

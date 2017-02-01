@@ -1,5 +1,7 @@
 package edu.iupui.jamcanno.magic8ball;
 
+import java.util.ArrayList;
+
 /**
  * Created by alexc on 1/18/2017.
  */
@@ -8,7 +10,7 @@ public class Response {
 
     public String mResponseString;
 
-    public static Response[] sAllResponses;
+    public static ArrayList<Response> sAllResponses;
 
 
     //constructor
